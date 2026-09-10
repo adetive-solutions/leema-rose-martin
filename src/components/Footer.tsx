@@ -11,13 +11,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const navLinks: { label: string; route: PageRoute; sub: string }[] = [
-    { label: 'Home', route: 'home', sub: 'Overview & Vision' },
-    { label: 'About Dr. Leema', route: 'about', sub: 'about.html' },
-    { label: 'Charity', route: 'charity', sub: 'charity' },
-    { label: 'Awards & Distinctions', route: 'awards', sub: 'awards.html' },
-    { label: 'Photographic Gallery', route: 'gallery', sub: 'gallery.php' },
-    { label: 'Contact Secretariat', route: 'contact', sub: 'contact.html' },
+  const navLinks: { label: string; route: PageRoute }[] = [
+    { label: 'Home', route: 'home' },
+    { label: 'About Dr. Leema', route: 'about' },
+    { label: 'Charity', route: 'charity' },
+    { label: 'Awards & Distinctions', route: 'awards' },
+    { label: 'Photographic Gallery', route: 'gallery' },
+    { label: 'Contact Secretariat', route: 'contact' },
   ];
 
   return (
@@ -60,10 +60,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <li key={item.route}>
                   <button
                     onClick={() => onNavigate(item.route)}
-                    className="group text-left text-slate-400 hover:text-white transition-colors cursor-pointer flex items-baseline gap-2"
+                    className="group text-left text-slate-400 hover:text-white transition-colors cursor-pointer"
                   >
                     <span className="group-hover:text-amber-400 transition-colors font-medium">{item.label}</span>
-                    <span className="text-[11px] text-slate-500 font-mono">({item.sub})</span>
                   </button>
                 </li>
               ))}
