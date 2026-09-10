@@ -29,10 +29,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="md:col-span-5 space-y-4">
             <button
               onClick={() => onNavigate('home')}
-              className="flex items-center gap-1.5 text-white font-extrabold text-2xl tracking-tighter cursor-pointer text-left"
+              className="flex items-center gap-1.5 text-white font-extrabold text-xl sm:text-2xl tracking-tight cursor-pointer text-left"
             >
-              <span>leema</span>
-              <span className="w-2 h-2 rounded-full bg-amber-500 inline-block mb-1"></span>
+              <span>Dr. Leema Rose Martin</span>
+              <span className="w-2 h-2 rounded-full bg-amber-500 inline-block mb-1 shrink-0"></span>
             </button>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               Official portal highlighting the humanitarian stewardship, healthcare initiatives, educational endowments, and ecological conservation projects of Dr. Leema Rose Martin.

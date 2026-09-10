@@ -103,7 +103,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
         <img
           src={portraitImg}
           alt="Dr. Leema Rose Martin - Philanthropist and Managing Trustee"
-          className="w-full h-full object-contain object-center scale-[1.1]"
+          className="w-full h-full object-cover object-[75%_center] sm:object-center"
         />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_75%_at_72%_45%,rgba(2,6,23,0.88)_0%,rgba(2,6,23,0.55)_50%,rgba(2,6,23,0.05)_80%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
