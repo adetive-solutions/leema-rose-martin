@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 import {
   HeartPulse,
   Accessibility,
@@ -83,18 +82,33 @@ interface CharityPageProps {
 export const CharityPage: React.FC<CharityPageProps> = ({ onNavigate }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Reveal each element as it scrolls into view — native IntersectionObserver
+  // driving a CSS transition, not a JS-timed mount animation. The previous
+  // gsap.from('.charity-fade-in', ...) animated everything on mount with a
+  // single long stagger sequence; if that tween got interrupted partway
+  // (React dev double-effects / HMR), elements later in the stagger order
+  // that hadn't started yet stayed stuck at opacity:0 — exactly the "Six
+  // Core Initiatives" and "Latest News" sections showing empty, since they
+  // sit later in the DOM than the hero/stats elements that had already
+  // animated in before the interruption.
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.charity-fade-in', {
-        opacity: 0,
-        y: 25,
-        duration: 0.7,
-        stagger: 0.1,
-        ease: 'power2.out',
-      });
-    }, containerRef);
+    const items = containerRef.current?.querySelectorAll('.charity-fade-in');
+    if (!items || items.length === 0) return;
 
-    return () => ctx.revert();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -102,22 +116,22 @@ export const CharityPage: React.FC<CharityPageProps> = ({ onNavigate }) => {
       {/* Hero */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-16">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="charity-fade-in inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="charity-fade-in scroll-reveal inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5 text-rose-600" />
             <span>MARTIN CHARITABLE TRUST &bull; CHARITY</span>
           </div>
 
-          <h1 className="charity-fade-in text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-5">
+          <h1 className="charity-fade-in scroll-reveal text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-5">
             The Trust works to reduce poverty, injustice & ill health
           </h1>
 
-          <p className="charity-fade-in text-lg sm:text-xl text-slate-600 leading-relaxed">
+          <p className="charity-fade-in scroll-reveal text-lg sm:text-xl text-slate-600 leading-relaxed">
             Helping people break the cycle of hardship and build a footing they can stand on.
           </p>
         </div>
 
         {/* Stats */}
-        <div className="charity-fade-in grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="charity-fade-in scroll-reveal grid grid-cols-1 sm:grid-cols-3 gap-4">
           {STATS.map((stat) => (
             <div
               key={stat.label}
@@ -144,10 +158,11 @@ export const CharityPage: React.FC<CharityPageProps> = ({ onNavigate }) => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {CORE_INITIATIVES.map((item) => (
+          {CORE_INITIATIVES.map((item, idx) => (
             <div
               key={item.number}
-              className="charity-fade-in bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-xs hover:shadow-lg hover:shadow-slate-900/5 transition-all duration-300"
+              style={{ transitionDelay: `${idx * 0.06}s` }}
+              className="charity-fade-in scroll-reveal bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-xs hover:shadow-lg hover:shadow-slate-900/5 transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-10 h-10 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center">
@@ -198,10 +213,11 @@ export const CharityPage: React.FC<CharityPageProps> = ({ onNavigate }) => {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {NEWS_HIGHLIGHTS.map((item) => (
+          {NEWS_HIGHLIGHTS.map((item, idx) => (
             <div
               key={item.title}
-              className="charity-fade-in bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs hover:shadow-lg transition-all duration-300"
+              style={{ transitionDelay: `${(idx % 6) * 0.06}s` }}
+              className="charity-fade-in scroll-reveal bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs hover:shadow-lg transition-all duration-300"
             >
               <span className="text-xs font-bold text-amber-600 bg-amber-50 border border-amber-200/60 px-2.5 py-1 rounded-full">
                 {item.date}
@@ -227,11 +243,12 @@ export const CharityPage: React.FC<CharityPageProps> = ({ onNavigate }) => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {CTA_OPTIONS.map((option) => (
+          {CTA_OPTIONS.map((option, idx) => (
             <button
               key={option.title}
               onClick={() => onNavigate('contact')}
-              className="charity-fade-in group text-left bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-xs hover:shadow-lg hover:border-amber-300 transition-all duration-300 cursor-pointer"
+              style={{ transitionDelay: `${idx * 0.06}s` }}
+              className="charity-fade-in scroll-reveal group text-left bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-xs hover:shadow-lg hover:border-amber-300 transition-all duration-300 cursor-pointer"
             >
               <div className="w-10 h-10 rounded-2xl bg-amber-50 border border-amber-200/60 flex items-center justify-center text-amber-600 mb-4">
                 <option.icon className="w-5 h-5" />
