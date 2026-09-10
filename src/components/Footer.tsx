@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <li key={item.route}>
                   <button
                     onClick={() => onNavigate(item.route)}
-                    className="group text-left text-slate-400 hover:text-white transition-colors cursor-pointer"
+                    className="group text-left text-slate-400 hover:text-white transition-colors cursor-pointer flex items-baseline gap-2"
                   >
                     <span className="group-hover:text-amber-400 transition-colors font-medium">{item.label}</span>
                   </button>
