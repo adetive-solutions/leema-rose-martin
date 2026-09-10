@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* SPA route changes swap the whole page's content, and lazy-loaded images
+   reflowing as they finish downloading can trigger the browser's
+   scroll-anchoring heuristics to nudge scrollY away from our reset. Not
+   useful for full-page swaps, so disable it. overflow-anchor does NOT
+   inherit, so setting it only on <html> left every actual content element
+   (body and everything in it) still anchoring — hence the universal selector. */
+* {
+  overflow-anchor: none;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  /* Explicit property list (rather than relying on Tailwind's transition-all)
+     so the 0.6s reveal doesn't override the cards' own 0.3s hover transitions. */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out,
+    box-shadow 0.3s ease-out, border-color 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
