@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { BIOGRAPHY_DETAILS, LEADERSHIP_ROLES, FOUNDATION_OVERVIEW } from '../data/leemaData';
 import { TimelineAwards } from '../components/TimelineAwards';
+import { asset } from '../lib/asset';
 import {
   GraduationCap,
   Heart,
@@ -20,12 +21,12 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const portraitImg = '/images/leemamartin/about/leemarose_profile2.jpg';
+const portraitImg = asset('/images/leemamartin/about/leemarose_profile2.jpg');
 const PROFILE_GALLERY = [
-  '/images/leemamartin/about/leemamartin_profile1.jpg',
-  '/images/leemamartin/about/leemarose_profile2.jpg',
-  '/images/leemamartin/about/leemarosemartin_profile3.jpg',
-  '/images/leemamartin/about/leemarosemartin_profile4.jpg',
+  asset('/images/leemamartin/about/leemamartin_profile1.jpg'),
+  asset('/images/leemamartin/about/leemarose_profile2.jpg'),
+  asset('/images/leemamartin/about/leemarosemartin_profile3.jpg'),
+  asset('/images/leemamartin/about/leemarosemartin_profile4.jpg'),
 ];
 
 interface AboutPageProps {

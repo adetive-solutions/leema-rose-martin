@@ -1,4 +1,5 @@
 import { Initiative, Award, LeadershipRole, MetricItem } from '../types';
+import { asset } from '../lib/asset';
 
 export const METRICS: MetricItem[] = [
   {
@@ -638,7 +639,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Kakarbhitta, Jhapa District, Nepal',
     date: 'May 2025',
     description: 'RCC Aakruthi organized a joint club meeting with the Rotary Club of Kakarvitta, strengthening international fellowship. The event featured a ceremonial flag exchange, and dresses were sponsored and distributed to underprivileged individuals in the local community.',
-    imageUrl: '/images/leemamartin/gallery/rotary-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/rotary-1.jpg'),
     tags: ['Rotary International', 'Nepal', 'Service Above Self']
   },
   {
@@ -649,7 +650,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Marina Beach, Chennai',
     date: 'March 2025',
     description: "On the occasion of International Women's Day, a beach cleanup drive was jointly led with the Environmentalist Foundation of India (E.F.I) and Arise Investment & Capital Pvt. Ltd. to create positive environmental impact.",
-    imageUrl: '/images/leemamartin/gallery/rotary-2.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/rotary-2.jpg'),
     tags: ['International Women\'s Day', 'Beach Cleanup', 'Environment']
   },
   {
@@ -660,7 +661,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Hare Krishna Auditorium, KGISL Campus, Coimbatore',
     date: '16 April 2025',
     description: 'Honored with the prestigious Dynamic Woman of the Decade Award for tireless service in uplifting rural women’s health and well-being, presided by Dr. G. Bakthavathsalam, Padma Shri Awardee and Founder Chairman, KG Hospital.',
-    imageUrl: '/images/leemamartin/gallery/awards-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/awards-1.jpg'),
     tags: ['Dynamic Woman Award', 'KG Hospital', "Rural Women's Health"]
   },
   {
@@ -671,7 +672,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Martin Homoeopathy Medical College, G.N. Mills, Coimbatore',
     date: '15 November 2024',
     description: 'Celebrated the 25th Silver Jubilee of Martin Homoeopathy Medical College & Hospital together with the 25th Founder’s Day, College Day, Sports & Cultural Day, and Freshers Induction Programme.',
-    imageUrl: '/images/leemamartin/gallery/public-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/public-1.jpg'),
     tags: ['Silver Jubilee', "Founder's Day", 'College Day']
   },
   {
@@ -682,7 +683,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Kalveli, Kalayarkovil, Sivagangai',
     date: '23 August 2021',
     description: 'As Joint General Secretary of Indian Jananayaga Katchi (IJK), hoisted the IJK Flag with the Sivagangai District Youth Wing on the occasion of the 80th Birthday of Kalvi Vallal Dr. T.R. Paarivendhar, MP, Founder of IJK.',
-    imageUrl: '/images/leemamartin/gallery/public-2.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/public-2.jpg'),
     tags: ['Indian Jananayaga Katchi', 'Flag Hoisting', 'Sivagangai']
   },
   {
@@ -693,7 +694,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Coimbatore & Regional Centres',
     date: '',
     description: 'Participating in traditional pooja celebrations and community festivities across Tamil Nadu, reflecting a lifelong commitment to interfaith harmony and cultural welfare.',
-    imageUrl: '/images/leemamartin/gallery/pooja-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/pooja-1.jpg'),
     tags: ['Pooja Celebrations', 'Community', 'Culture']
   },
   {
@@ -704,7 +705,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'G.N. Mills, Coimbatore',
     date: '2024',
     description: 'Renovated facilities for 413 students spanning LKG to 8th Standard: eight ventilated classrooms, a modernized computer lab, library, digital smart classroom, science laboratory, RO drinking water facility, and a 3,000 sq. ft multi-sports turf ground.',
-    imageUrl: '/images/leemamartin/gallery/trust-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/trust-1.jpg'),
     tags: ['Model Smart School', 'Corporation Middle School', 'Infrastructure']
   },
   {
@@ -715,7 +716,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Ramanathapuram, Tamil Nadu',
     date: '2024',
     description: 'Donated ₹50 lakhs to Mega Foundations for the restoration of the 48.25 km Narayanan Canal, benefiting over 5 lakh people across 455 villages and recharging over 1,000 lakes and 2,500 small ponds.',
-    imageUrl: '/images/leemamartin/gallery/trust-2.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/trust-2.jpg'),
     tags: ['Mega Foundations', 'Water Restoration', 'Ramanathapuram']
   },
   {
@@ -726,7 +727,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Coimbatore',
     date: '7 October 2013',
     description: 'Sponsored ₹25,000 towards Kabaddi team dress and equipment as Vice President of the Best & Co. Kabaddi Team Association, Coimbatore.',
-    imageUrl: '/images/leemamartin/gallery/sport-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/sport-1.jpg'),
     tags: ['Kabaddi', 'Sports Sponsorship']
   },
   {
@@ -737,7 +738,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Berlin, Germany',
     date: '2015',
     description: 'Delegation to the Berlin International Homoeopathy Congress, receiving the Distinguished Service Award in Homoeopathic Medicine on the 260th Birth Anniversary of Dr. Christian Friedrich Samuel Hahnemann.',
-    imageUrl: '/images/leemamartin/gallery/berlin-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/berlin-1.jpg'),
     tags: ['Berlin MOU', 'Germany', 'Homoeopathy Medicine']
   },
   {
@@ -748,7 +749,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'PSG Hospitals, Coimbatore',
     date: '20 August 2018',
     description: 'Donated ₹1,00,000 through Rotary Club of Coimbatore Aakruthi to sponsor a critical brain surgery for a patient at PSG Hospitals, Coimbatore.',
-    imageUrl: '/images/leemamartin/gallery/medi-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/medi-1.jpg'),
     tags: ['Medical Assistance', 'PSG Hospitals', 'Critical Surgery']
   },
   {
@@ -759,7 +760,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Besant Nagar, Chennai',
     date: '29 April 2017',
     description: 'Led the Rotary Aakruthi polio vaccination campaign at the Government Primary Middle School, Besant Nagar, Chennai, in association with Kanchi Kamakoti Sankara Medical Trust.',
-    imageUrl: '/images/leemamartin/gallery/medi-2.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/medi-2.jpg'),
     tags: ['Polio Campaign', 'Rotary Aakruthi', 'Public Health']
   },
   {
@@ -770,7 +771,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Vattamalaipalayam, Coimbatore',
     date: '19 November 2024',
     description: 'Donated ₹46,00,000 to Government Middle School, Vattamalaipalayam for new classrooms and modern toilet facilities – a school with a proud legacy, once visited by Rabindranath Tagore in 1923.',
-    imageUrl: '/images/leemamartin/gallery/soc-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/soc-1.jpg'),
     tags: ['Martin Foundation', 'School Infrastructure', 'Historic Legacy']
   },
   {
@@ -781,7 +782,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Coimbatore',
     date: '11 April 2025',
     description: 'Graced the commencement ceremony of the Rejuvenation of Vellakinar South Solai Pond as Chief Guest, organized by Siruthuli under the Nalla Thanni Project for desilting and sewage treatment.',
-    imageUrl: '/images/leemamartin/gallery/soc-2.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/soc-2.jpg'),
     tags: ['Siruthuli', 'Water Conservation', 'Environment']
   },
   {
@@ -792,7 +793,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'National Academy School, Ramanathapuram',
     date: '21–23 January 2020',
     description: '34,00,000 seed balls were prepared by 2,500 participants, including students from the National Academy and Ramanathapuram District Government Schools, over a 72-hour event raising awareness on green cover and reducing global warming.',
-    imageUrl: '/images/leemamartin/gallery/wr-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/wr-1.jpg'),
     tags: ['World Record', 'Seed Balls', 'Reforestation']
   },
   {
@@ -803,7 +804,7 @@ export const GALLERY_ITEMS: import('../types').GalleryItem[] = [
     location: 'Florence, Italy',
     date: '2010',
     description: 'Conferral ceremony for the Honorary Doctorate of Humanity Science at Yorker International University, Italy, in recognition of international humanitarian and community healthcare work.',
-    imageUrl: '/images/leemamartin/gallery/italy-1.jpg',
+    imageUrl: asset('/images/leemamartin/gallery/italy-1.jpg'),
     tags: ['Italy MOU', 'Honorary Doctorate', 'Humanity Science']
   }
 ];

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Sparkles, X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import { asset } from '../lib/asset';
 
 const AWARD_PHOTOS = Array.from(
   { length: 21 },
-  (_, i) => `/images/leemamartin/awards/awards${String(i + 1).padStart(3, '0')}.jpg`
+  (_, i) => asset(`/images/leemamartin/awards/awards${String(i + 1).padStart(3, '0')}.jpg`)
 );
 
 interface AwardsPageProps {

@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ArrowRight, Sparkles, Award, Leaf } from 'lucide-react';
+import { asset } from '../lib/asset';
 
-const portraitImg = '/images/leemamartin/home/leemarosemartin.jpg';
+const portraitImg = asset('/images/leemamartin/home/leemarosemartin.jpg');
 
 interface HeroProps {
   onExploreClick: () => void;
@@ -196,7 +197,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
               {/* Martin Homoeopathy Medical College & Hospital */}
               <div className="flex flex-col items-center gap-1.5 hover:opacity-80 transition-opacity" title="Secretary & Correspondent, Martin Homoeopathy Medical College & Hospital">
                 <img
-                  src="/images/leemamartin/home/martincollege_logo_transparent.png"
+                  src={asset('/images/leemamartin/home/martincollege_logo_transparent.png')}
                   alt="Martin Homoeopathy Medical College & Hospital"
                   className="h-9 sm:h-10 w-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
                 />
@@ -207,7 +208,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
               {/* Martin Group of Companies */}
               <div className="flex flex-col items-center gap-1.5 hover:opacity-80 transition-opacity" title="Director, Martin Group of Companies">
                 <img
-                  src="/images/leemamartin/home/martingroup_logo_transparent.png"
+                  src={asset('/images/leemamartin/home/martingroup_logo_transparent.png')}
                   alt="Martin Group of Companies"
                   className="h-9 sm:h-10 w-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
                 />
@@ -218,7 +219,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
               {/* Martin Charitable Trust */}
               <div className="flex flex-col items-center gap-1.5 hover:opacity-80 transition-opacity" title="Managing Trustee, Martin Charitable Trust">
                 <img
-                  src="/images/leemamartin/home/martintrust_logo_transparent.png"
+                  src={asset('/images/leemamartin/home/martintrust_logo_transparent.png')}
                   alt="Martin Charitable Trust"
                   className="h-9 sm:h-10 w-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
                 />
